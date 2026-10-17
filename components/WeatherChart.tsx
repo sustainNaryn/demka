@@ -16,9 +16,10 @@ import type { DayForecast } from "@/lib/weather";
 
 type Props = {
   days: DayForecast[];
+  years: number[];
 };
 
-export function WeatherChart({ days }: Props) {
+export function WeatherChart({ days, years }: Props) {
   const data = days.map((d) => ({
     name: d.label,
     precip: d.precipitation,
@@ -27,7 +28,12 @@ export function WeatherChart({ days }: Props) {
   }));
 
   return (
-    <Card title="Погода · 7 дней" className="min-h-[280px]">
+    <Card title="Прогноз по архиву · 7 дней" className="min-h-[280px]">
+      <p className="mb-3 text-xs text-solar-forest/60">
+        {years.length > 0
+          ? `Среднее за ${years[0]}–${years[years.length - 1]}, те же календарные даты`
+          : "Среднее за те же календарные даты прошлых лет"}
+      </p>
       <div className="h-64 w-full sm:h-72">
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart data={data} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>

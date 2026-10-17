@@ -57,7 +57,7 @@ export function Dashboard() {
       ) : null}
 
       {state.status === "ready" && today && todaySchedule ? (
-        <div className="grid gap-4 lg:grid-cols-2 lg:gap-5">
+        <div key={`${cropId}-${greenhouse}`} className="stage grid gap-4 lg:grid-cols-2 lg:gap-5">
           <TodayCard
             dateLabel={today.label}
             litersPerM2={todaySchedule.litersPerM2}
@@ -71,7 +71,7 @@ export function Dashboard() {
           <IrrigationCalendar days={schedule} />
           <WaterSaved savings={savings} />
           <div className="lg:col-span-2">
-            <WeatherChart days={days} />
+            <WeatherChart days={days} years={state.data.source.years} />
           </div>
           <div className="lg:col-span-2">
             <SoilSensorDemo />

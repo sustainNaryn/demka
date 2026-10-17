@@ -9,8 +9,9 @@ export function FrostAlert({ days }: Props) {
   if (days.length === 0) {
     return (
       <Card title="Заморозки">
-        <p className="text-sm text-solar-forest/80">
-          В ближайшие 7 дней ночная температура выше 0 °C.
+        <p className="text-lg font-medium text-solar-forest">Ночи тёплые</p>
+        <p className="mt-2 text-sm leading-relaxed text-solar-forest/75">
+          В ближайшие 7 дней минимум держится выше 0 °C. Укрывать грядки не нужно.
         </p>
       </Card>
     );
@@ -19,23 +20,27 @@ export function FrostAlert({ days }: Props) {
   const coldest = days.reduce((min, d) => (d.tempMin < min.tempMin ? d : min), days[0]);
 
   return (
-    <Card title="Предупреждение о заморозках">
-      <p className="text-sm font-medium text-solar-forest">
-        Ожидается {days.length}{" "}
-        {days.length === 1 ? "день" : days.length < 5 ? "дня" : "дней"} с минимумом ≤ 0 °C.
-        Самый холодный: {coldest.label}, {coldest.tempMin.toFixed(1)} °C.
+    <Card title="Предупреждение о заморозках" className="ring-1 ring-sky-200/80">
+      <p className="text-lg font-medium text-solar-forest">
+        {days.length}{" "}
+        {days.length === 1 ? "холодная ночь" : days.length < 5 ? "холодные ночи" : "холодных ночей"}
       </p>
-      <ul className="mt-2 flex flex-wrap gap-2">
+      <p className="mt-1 text-sm text-solar-forest/75">
+        Самый низкий минимум — {coldest.tempMin.toFixed(1)} °C, {coldest.label}.
+      </p>
+      <ul className="mt-3 flex flex-wrap gap-2">
         {days.map((d) => (
           <li
             key={d.date}
-            className="rounded-lg bg-sky-100/80 px-2.5 py-1 text-xs font-medium text-solar-sky-deep"
+            className="rounded-full bg-sky-100/90 px-3 py-1 text-xs font-medium text-solar-sky-deep"
           >
             ❄ {d.label} · {d.tempMin.toFixed(1)} °C
           </li>
         ))}
       </ul>
-      <p className="mt-3 text-sm text-solar-forest/80">{FROST_TIP}</p>
+      <p className="mt-4 rounded-2xl bg-white/60 px-3 py-3 text-sm leading-relaxed text-solar-forest/80">
+        {FROST_TIP}
+      </p>
     </Card>
   );
 }

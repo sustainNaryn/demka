@@ -27,7 +27,7 @@ export function SoilSensorDemo() {
         </div>
         <div className="h-3 flex-1 max-w-[200px] overflow-hidden rounded-full bg-solar-forest/10">
           <div
-            className="h-full rounded-full bg-gradient-to-r from-solar-gold to-solar-leaf transition-all"
+            className="bar-fill h-full rounded-full bg-gradient-to-r from-solar-gold to-solar-leaf"
             style={{ width: `${solar}%` }}
           />
         </div>

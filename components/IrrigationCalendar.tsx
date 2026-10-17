@@ -9,10 +9,13 @@ export function IrrigationCalendar({ days }: Props) {
   return (
     <Card title="Календарь полива">
       <ul className="space-y-2">
-        {days.map((d) => (
+        {days.map((d, i) => (
           <li
             key={d.date}
-            className="flex items-center justify-between gap-3 rounded-xl bg-white/45 px-3 py-2.5"
+            className={`flex items-center justify-between gap-3 rounded-2xl px-3 py-2.5 transition-colors ${
+              d.frost ? "bg-sky-50/90" : "bg-white/55 hover:bg-white/80"
+            }`}
+            style={{ animationDelay: `${i * 40}ms` }}
           >
             <div>
               <p className="text-sm font-medium capitalize text-solar-forest">
@@ -25,10 +28,10 @@ export function IrrigationCalendar({ days }: Props) {
               </p>
             </div>
             <span
-              className={`shrink-0 rounded-lg px-2.5 py-1 text-xs font-semibold ${
+              className={`shrink-0 rounded-full px-3 py-1 text-xs font-semibold ${
                 d.verdict === "water"
-                  ? "bg-solar-gold/80 text-solar-forest"
-                  : "bg-solar-moss/40 text-solar-forest/90"
+                  ? "bg-solar-gold text-solar-forest"
+                  : "bg-solar-moss/50 text-solar-forest"
               }`}
             >
               {d.verdict === "water" ? "Полив" : "Пропуск"}
