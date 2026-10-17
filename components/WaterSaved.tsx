@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/Card";
+import { naryn } from "@/data/naryn";
 import { FIXED_DAILY_LITERS_PER_M2, type WaterSavings } from "@/lib/water-savings";
 
 type Props = {
@@ -8,6 +9,8 @@ type Props = {
 export function WaterSaved({ savings }: Props) {
   const scale = Math.max(savings.baselineLiters, 1);
   const smartWidth = Math.min(100, (savings.smartLiters / scale) * 100);
+  const savedPercent =
+    savings.baselineLiters > 0 ? Math.round((savings.savedLiters / savings.baselineLiters) * 100) : 0;
 
   return (
     <Card title="Сэкономлено воды">
@@ -16,7 +19,9 @@ export function WaterSaved({ savings }: Props) {
         <span className="ml-1 text-lg font-medium text-solar-forest/60">л/м²</span>
       </p>
       <p className="mt-2 text-sm leading-relaxed text-solar-forest/75">
-        За {savings.days} дней вместо ежедневных {FIXED_DAILY_LITERS_PER_M2} л/м².
+        За {savings.days} дней это {savedPercent}% против традиционного пика:{" "}
+        {FIXED_DAILY_LITERS_PER_M2} л/м² в день, или {naryn.traditionalPeakLitersPerHa.toLocaleString("ru-RU")}{" "}
+        л/га. В исследованиях умного полива экономия обычно {naryn.smartSavingsPercent}%.
       </p>
       <div className="mt-5 space-y-3">
         <div>

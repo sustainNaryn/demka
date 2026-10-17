@@ -1,4 +1,14 @@
 import { type ReactNode } from "react";
+import { naryn } from "@/data/naryn";
+
+const facts = [
+  `~${naryn.elevationM} м`,
+  naryn.climate,
+  `${naryn.annualPrecipMm} мм/год`,
+  `дожди ${naryn.rainPeak}`,
+  `лето до +${naryn.summerDayC} °C`,
+  `зимой ночью до ${naryn.winterNightC} °C`,
+];
 
 export function DashboardShell({ children }: { children: ReactNode }) {
   return (
@@ -23,9 +33,19 @@ export function DashboardShell({ children }: { children: ReactNode }) {
             </span>
           </h1>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-solar-forest/75 sm:text-base">
-            Норма полива считается по средним температуре, осадкам и ET₀ за те же 7 дат
-            предыдущих лет.
+            Короткий сезон и мало осадков. Норма на 7 дней считается по архиву, а не поливом
+            «на глаз».
           </p>
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {facts.map((fact) => (
+              <li
+                key={fact}
+                className="rounded-full bg-white/65 px-3 py-1 text-xs text-solar-forest/80 shadow-sm"
+              >
+                {fact}
+              </li>
+            ))}
+          </ul>
         </header>
         {children}
       </div>
