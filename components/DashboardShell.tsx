@@ -20,7 +20,7 @@ export function DashboardShell({ children }: { children: ReactNode }) {
           <div className="flex flex-wrap items-center gap-2">
             <span className="inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-solar-sky-deep shadow-sm">
               <span className="h-2 w-2 rounded-full bg-solar-gold shadow-[0_0_0_4px_rgb(255_209_102_/_0.35)]" />
-              SolarPunk · Нарын
+              water everywhere
             </span>
             <span className="rounded-full bg-solar-forest/8 px-3 py-1 text-xs text-solar-forest/80">
               Архив 5 лет · Open-Meteo

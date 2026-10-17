@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img" aria-labelledby="title desc">
+  <title id="title">Схема подключения умного полива</title>
+  <desc id="desc">Солнечная панель, TP4056, аккумулятор 18650, ESP32, ёмкостный датчик влажности и дашборд.</desc>
+  <rect width="1920" height="1080" fill="#f7fbf8"/>
+  <text x="80" y="86" fill="#1f4d38" font-family="DejaVu Sans, Liberation Sans, sans-serif" font-size="44" font-weight="700">Схема подключения</text>
+
+  <defs>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 Z" fill="#d64545"/>
+    </marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 Z" fill="#7d848e"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 Z" fill="#2f9e6b"/>
+    </marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 Z" fill="#0096c7"/>
+    </marker>
+  </defs>
+
+  <g font-family="DejaVu Sans, Liberation Sans, sans-serif" text-anchor="middle">
+    <rect x="70" y="150" width="340" height="160" rx="28" fill="#ffe7a3" stroke="#e2b14a" stroke-width="3"/>
+    <text x="240" y="222" fill="#1f4d38" font-size="30" font-weight="700">Солнечная панель</text>
+    <text x="240" y="266" fill="#1f4d38" font-size="26">5–6 В</text>
+
+    <rect x="490" y="150" width="340" height="160" rx="28" fill="#ffe7a3" stroke="#e2b14a" stroke-width="3"/>
+    <text x="660" y="222" fill="#1f4d38" font-size="30" font-weight="700">Контроллер заряда</text>
+    <text x="660" y="266" fill="#1f4d38" font-size="26">TP4056</text>
+
+    <rect x="910" y="150" width="340" height="160" rx="28" fill="#ffe7a3" stroke="#e2b14a" stroke-width="3"/>
+    <text x="1080" y="222" fill="#1f4d38" font-size="30" font-weight="700">Аккумулятор</text>
+    <text x="1080" y="266" fill="#1f4d38" font-size="26">Li-ion 18650</text>
+  </g>
+
+  <line x1="410" y1="230" x2="478" y2="230" stroke="#d64545" stroke-width="6" marker-end="url(#arrow-red)"/>
+  <line x1="830" y1="230" x2="898" y2="230" stroke="#d64545" stroke-width="6" marker-end="url(#arrow-red)"/>
+  <line x1="1080" y1="310" x2="1080" y2="448" stroke="#d64545" stroke-width="6" marker-end="url(#arrow-red)"/>
+  <text x="1104" y="392" fill="#d64545" font-family="DejaVu Sans, Liberation Sans, sans-serif" font-size="26" font-weight="700">питание 3.3 В</text>
+
+  <g font-family="DejaVu Sans, Liberation Sans, sans-serif" text-anchor="middle">
+    <rect x="70" y="460" width="430" height="210" rx="28" fill="#d7f6fb" stroke="#3db8d4" stroke-width="3"/>
+    <text x="285" y="552" fill="#0d4f63" font-size="30" font-weight="700">Ёмкостный датчик</text>
+    <text x="285" y="598" fill="#0d4f63" font-size="28">влажности почвы</text>
+
+    <rect x="890" y="460" width="380" height="210" rx="28" fill="#d7f6fb" stroke="#3db8d4" stroke-width="3"/>
+    <text x="1080" y="578" fill="#0d4f63" font-size="40" font-weight="700">ESP32</text>
+
+    <rect x="1480" y="460" width="370" height="210" rx="28" fill="#d7f6fb" stroke="#3db8d4" stroke-width="3"/>
+    <text x="1665" y="578" fill="#0d4f63" font-size="36" font-weight="700">Дашборд</text>
+  </g>
+
+  <line x1="500" y1="515" x2="878" y2="515" stroke="#d64545" stroke-width="6" marker-end="url(#arrow-red)"/>
+  <line x1="500" y1="565" x2="878" y2="565" stroke="#7d848e" stroke-width="6" marker-end="url(#arrow-gray)"/>
+  <line x1="500" y1="615" x2="878" y2="615" stroke="#2f9e6b" stroke-width="6" marker-end="url(#arrow-green)"/>
+
+  <g font-family="DejaVu Sans, Liberation Sans, sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#1f4d38" stroke="#f7fbf8" stroke-width="8" paint-order="stroke">
+    <text x="689" y="506">VCC → 3V3</text>
+    <text x="689" y="556">GND → GND</text>
+    <text x="689" y="606">AOUT → GPIO34</text>
+  </g>
+
+  <line x1="1270" y1="565" x2="1468" y2="565" stroke="#0096c7" stroke-width="6" stroke-dasharray="14 10" marker-end="url(#arrow-sky)"/>
+  <g font-family="DejaVu Sans, Liberation Sans, sans-serif" text-anchor="middle" fill="#0096c7" stroke="#f7fbf8" stroke-width="8" paint-order="stroke">
+    <text x="1369" y="530" font-size="24" font-weight="700">Wi-Fi</text>
+    <text x="1369" y="620" font-size="22">раз в 15 минут</text>
+  </g>
+
+  <rect x="70" y="860" width="1780" height="140" rx="28" fill="#ffffff" stroke="#d5e6dc" stroke-width="2"/>
+  <text x="110" y="942" fill="#1f4d38" font-family="DejaVu Sans, Liberation Sans, sans-serif" font-size="28" font-weight="700">Провода</text>
+  <line x1="300" y1="932" x2="400" y2="932" stroke="#d64545" stroke-width="8"/>
+  <text x="424" y="942" fill="#1f4d38" font-family="DejaVu Sans, Liberation Sans, sans-serif" font-size="28">красный — питание</text>
+  <line x1="860" y1="932" x2="960" y2="932" stroke="#7d848e" stroke-width="8"/>
+  <text x="984" y="942" fill="#1f4d38" font-family="DejaVu Sans, Liberation Sans, sans-serif" font-size="28">серый — земля</text>
+  <line x1="1320" y1="932" x2="1420" y2="932" stroke="#2f9e6b" stroke-width="8"/>
+  <text x="1444" y="942" fill="#1f4d38" font-family="DejaVu Sans, Liberation Sans, sans-serif" font-size="28">зелёный — сигнал</text>
+</svg>
