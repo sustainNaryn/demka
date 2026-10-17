@@ -8,9 +8,18 @@ type Props = {
   precipitation: number;
   kc: number;
   dateLabel: string;
+  greenhouse: boolean;
 };
 
-export function TodayCard({ litersPerM2, verdict, et0, precipitation, kc, dateLabel }: Props) {
+export function TodayCard({
+  litersPerM2,
+  verdict,
+  et0,
+  precipitation,
+  kc,
+  dateLabel,
+  greenhouse,
+}: Props) {
   const watering = verdict === "water";
 
   return (
@@ -23,7 +32,9 @@ export function TodayCard({ litersPerM2, verdict, et0, precipitation, kc, dateLa
             <span className="ml-1 text-lg font-semibold text-solar-forest/70">л/м²</span>
           </p>
           <p className="mt-1 text-xs text-solar-forest/65">
-            max(0, ET₀×Kc − осадки) · Kc = {kc}
+            {greenhouse
+              ? `max(0, ET₀×Kc×коэф. теплицы) · Kc = ${kc}`
+              : `max(0, ET₀×Kc − осадки) · Kc = ${kc}`}
           </p>
         </div>
         <span
@@ -42,8 +53,12 @@ export function TodayCard({ litersPerM2, verdict, et0, precipitation, kc, dateLa
           <dd className="font-medium tabular-nums">{et0.toFixed(1)} мм</dd>
         </div>
         <div className="rounded-lg bg-white/50 px-3 py-2">
-          <dt className="text-xs text-solar-forest/60">Осадки</dt>
-          <dd className="font-medium tabular-nums">{precipitation.toFixed(1)} мм</dd>
+          <dt className="text-xs text-solar-forest/60">
+            {greenhouse ? "Осадки (теплица)" : "Осадки"}
+          </dt>
+          <dd className="font-medium tabular-nums">
+            {greenhouse ? "0.0" : precipitation.toFixed(1)} мм
+          </dd>
         </div>
       </dl>
     </Card>

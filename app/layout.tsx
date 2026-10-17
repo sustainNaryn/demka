@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Умный полив — Бишкек",
-  description: "SolarPunk-дашборд полива по прогнозу Open-Meteo",
+  title: "Умный полив — Нарын",
+  description: "SolarPunk-дашборд полива для Нарына по прогнозу Open-Meteo",
 };
 
 export default function RootLayout({

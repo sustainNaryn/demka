@@ -11,12 +11,12 @@ export type WeatherForecast = {
   timezone: string;
 };
 
-const BISHKEK = { lat: 42.87, lon: 74.59 };
+const NARYN = { lat: 41.43, lon: 75.99 };
 
 export function openMeteoUrl(): string {
   const params = new URLSearchParams({
-    latitude: String(BISHKEK.lat),
-    longitude: String(BISHKEK.lon),
+    latitude: String(NARYN.lat),
+    longitude: String(NARYN.lon),
     daily: [
       "temperature_2m_max",
       "temperature_2m_min",
